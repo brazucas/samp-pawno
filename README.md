@@ -1,0 +1,1 @@
+Ao fazer clone do repositório, lembrar de renomear o arquivo settings.ini.dist para settings.ini e fazer a configuração ideal para o seu ambiente de desenvolvimento.
