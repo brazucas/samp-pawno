@@ -1,4 +1,5 @@
 /*
+
 	GeoIP Include by Whitetiger
 	-> SQLite GeoIP Include
 	
@@ -101,15 +102,18 @@ stock GetPlayerProxy(playerid) {
 }
 
 /*
+
 	---------------------------------------------------------------------------------------
 	INTERNAL FUNCTIONS
 	---------------------------------------------------------------------------------------
+
 	- stock GetIPCountry(ip[], dest[], len = sizeof(dest))
 	- stock GetIPISP(ip[], dest[], len = sizeof(dest))
 	- stock GetIPCity(ip[], dest[], len = sizeof(dest))
 	- stock GetIPGMT(ip[])
 	- stock GetIPProxy(ip[])
 	- stock ip2long(ip[])
+
 */
 
 stock GetIPCountry(ip[], dest[], const len = sizeof(dest)) {
@@ -241,9 +245,12 @@ stock GetIPProxy(ip[]) {
 	
 		new tmp[90];
 		tmp = ip2long(ip);
+
 		new dest[50];
+
 		new string[500];
 		format(string, sizeof(string), "SELECT blk.*\n FROM geolocation loc,\n geoblocks blk\n WHERE blk.idx = (%s-(%s %% 65536))\n AND blk.startIpNum < %s\n AND blk.endIpNum > %s\n AND loc.locId = blk.locId LIMIT 1;", tmp, tmp, tmp, tmp);
+
 		geoip_city = db_open(GeoIP_CityFile);
 		_result = db_query(geoip_city, string);
 		if(db_num_rows(_result) >= 1)
@@ -262,6 +269,7 @@ stock GetIPProxy(ip[]) {
 
 /*forward OnProxyRecieved(index, response_code, data[]);
 public OnProxyRecieved(index, response_code, data[]) {
+
 	if(IsPlayerConnected(index)) {
 	
 		new ip[MAX_PLAYER_NAME];
@@ -284,11 +292,13 @@ stock ip2long(ip[]) {
 }
 
 /*
+
 	---------------------------------------------------------------------------------------
 	SECONDARY FUNCTIONS
 	---------------------------------------------------------------------------------------
 	
 	- stock sscanf_(string[], format[], {Float,_}:...)
+
 */
 
 stock sscanf_(string[], format[], {Float,_}:...) // by Y_Less
