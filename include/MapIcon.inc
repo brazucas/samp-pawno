@@ -8,7 +8,7 @@
 
 #define MAX_ICONS 1000
 #define MAX_SHOWED_MAPICONS 100 //Don't write more than 32!
-#define MAX_PLAYERS_ICONS 50
+#define MAX_PLAYERS_ICONS 40
 
 new Float:XM[MAX_ICONS];
 new Float:YM[MAX_ICONS];
